@@ -1,0 +1,1324 @@
+[
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./doc/main.js",
+    "group": "C__Users_Federico_Resnizky_projects_pirple_2_doc_main_js",
+    "groupTitle": "C__Users_Federico_Resnizky_projects_pirple_2_doc_main_js",
+    "name": ""
+  },
+  {
+    "type": "delete",
+    "url": "/cart",
+    "title": "Delete cart",
+    "name": "DeleteCart",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "cartNotFound",
+            "description": "<p>Could not find the specified cart.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidUserForCart",
+            "description": "<p>Cart does not belong to the user.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "cartDeleteError",
+            "description": "<p>Could not delete cart.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "get",
+    "url": "/cart",
+    "title": "Get items from cart",
+    "name": "GetCart",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Item list, each with type, size, qty and subtotal</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>Total amount of cart</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidCart",
+            "description": "<p>Could not find the specified cart.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidCartForUser",
+            "description": "<p>Cart does not belong to the user.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "post",
+    "url": "/cart",
+    "title": "Create cart adding items to cart",
+    "name": "PostCart",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Array of item objects to add to the cart. They must include type and size. qty defaults to 1</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Item list, each with type, size, qty and subtotal</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>Total amount of cart</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "cartNotFound",
+            "description": "<p>Could not find the specified cart.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "cartUserError",
+            "description": "<p>Cart does not belong to the user.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>User not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "paymentError",
+            "description": "<p>There was an error processing the payment.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "emailError",
+            "description": "<p>There was an error sending confirmation email.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashError",
+            "description": "<p>Could not hash the user's email.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/order.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "post",
+    "url": "/cart",
+    "title": "Create cart adding items to cart",
+    "name": "PostCart",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Array of item objects to add to the cart. They must include type and size. qty defaults to 1</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Item list, each with type, size, qty and subtotal</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>Total amount of cart</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidItems",
+            "description": "<p>Invalid items in item list.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "storeError",
+            "description": "<p>Could not save the cart.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "put",
+    "url": "/cart",
+    "title": "Modify items in cart. If item qty is 0 or less it's removed from the cart",
+    "name": "PutCart",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Cart ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "items",
+            "description": "<p>Array of item objects to add or edit to the cart. They must include type and size. qty defaults to 1, and can be negative</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "cart",
+            "description": "<p>Cart object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "cart.email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "cart.id",
+            "description": "<p>Cart ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "cart.items",
+            "description": "<p>Item list, each with type, size, qty and subtotal</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "cart.total",
+            "description": "<p>Total amount of cart</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "invalidObjects",
+            "description": "<p>Invalid objects array</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "cartNotFound",
+            "description": "<p>Could not find the specified cart.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidUserForCart",
+            "description": "<p>Cart does not belong to the user.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "invalidItems",
+            "description": "<p>Invalid items in item list.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "storeError",
+            "description": "<p>Could not save the cart.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "menuError",
+            "description": "<p>Could not load menu.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "cartUpdateError",
+            "description": "<p>Could not update cart.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "get",
+    "url": "/menu",
+    "title": "Get menu items",
+    "name": "GetMenu",
+    "group": "Menu",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Valid Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "array",
+            "optional": false,
+            "field": "pizzas",
+            "description": "<p>Pizza list</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required field.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "menuError",
+            "description": "<p>Could not load menu.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/menu.js",
+    "groupTitle": "Menu"
+  },
+  {
+    "type": "delete",
+    "url": "/tokens",
+    "title": "Delete token, logging out user.",
+    "name": "DeleteTokens",
+    "group": "Tokens",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Token ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>Boolean flag</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required field.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "tokenNotFound",
+            "description": "<p>Could not find the specified token.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "deleteError",
+            "description": "<p>Could not delete the specified token.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/tokens.js",
+    "groupTitle": "Tokens"
+  },
+  {
+    "type": "get",
+    "url": "/tokens",
+    "title": "Get Token data for Token ID",
+    "name": "GetTokens",
+    "group": "Tokens",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Token ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>Timestamp of the expiration date of the token</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required field.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>User not found.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/tokens.js",
+    "groupTitle": "Tokens"
+  },
+  {
+    "type": "post",
+    "url": "/tokens",
+    "title": "Login user and get an auth token",
+    "name": "PostTokens",
+    "group": "Tokens",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Token</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>Timestamp of the expiration date of the token</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required Fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>Could not find the specified user.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "passwordError",
+            "description": "<p>Password did not match the specified user stored password.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "storeError",
+            "description": "<p>Could not create the new token.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/tokens.js",
+    "groupTitle": "Tokens"
+  },
+  {
+    "type": "put",
+    "url": "/tokens",
+    "title": "Extends the expiration time of the Token",
+    "name": "PutTokens",
+    "group": "Tokens",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Token ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>Boolean flag</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing Required fields or fields are invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "tokenNotFound",
+            "description": "<p>The specified token does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "tokenExpired",
+            "description": "<p>The token has already expired and cannot be extended.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "updateError",
+            "description": "<p>Could not update the token expiration.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/tokens.js",
+    "groupTitle": "Tokens"
+  },
+  {
+    "type": "delete",
+    "url": "/user",
+    "title": "Delete a User",
+    "name": "DeleteUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Valid Token ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required field.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>Could not find the specified user.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "userDeleteError",
+            "description": "<p>Could not delete the specified user.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashEmailError",
+            "description": "<p>Could not hash the user's email.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/user",
+    "title": "Retrieve a User",
+    "name": "GetUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Valid Token ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>First name of the User</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>Last name of the User</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email of the User</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "address",
+            "description": "<p>Address of the User</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required field.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>User not found.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashEmailError",
+            "description": "<p>Could not hash the user's email.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user",
+    "title": "Create a new User",
+    "name": "PostUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>First Name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>Last Name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "address",
+            "description": "<p>Address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "emailExists",
+            "description": "<p>A user with that email already exists.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "storeError",
+            "description": "<p>Could not create the new user.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashPasswordError",
+            "description": "<p>Could not hash the user's password.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashEmailError",
+            "description": "<p>Could not hash the user's email.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "put",
+    "url": "/user",
+    "title": "Update a User",
+    "name": "PutUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "firstName",
+            "description": "<p>First Name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "lastName",
+            "description": "<p>Last Name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "address",
+            "description": "<p>Address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "password",
+            "description": "<p>Password</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Valid Token ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFields",
+            "description": "<p>Missing required fields.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingFieldsToUpdate",
+            "description": "<p>Missing fields to update.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "missingToken",
+            "description": "<p>Missing required token in header or token is invalid.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "userNotFound",
+            "description": "<p>The specified user does not exists.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "userUpdateError",
+            "description": "<p>Could not update the user.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "optional": false,
+            "field": "hashEmailError",
+            "description": "<p>Could not hash the user's email.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./lib/users.js",
+    "groupTitle": "User"
+  }
+]
